@@ -8,10 +8,12 @@ export const officeList: Array<OfficeModel> = [
         freeParkSlots: 10,
         freeWorkPlaces: 3,
         humidity: 90,
-        officeAddress: 'Alba Iulia 75',
-        officeName: 'Office 1',
+        officeAddress: 'Calea Iesilor 8',
+        officeName: 'ZTower',
         temperature: 24,
-        driveMinutes: 15
+        driveMinutes: 15,
+        lat: 47.03904153,
+        lng: 28.80460471
     },
     {
         id: 2,
@@ -20,9 +22,11 @@ export const officeList: Array<OfficeModel> = [
         freeWorkPlaces: 17,
         humidity: 83,
         officeAddress: 'Alba Iulia 75',
-        officeName: 'Office 2',
+        officeName: 'Orange Moldova',
         temperature: 27,
-        driveMinutes: 37
+        driveMinutes: 37,
+        lat: 47.03738175,
+        lng: 28.77079278,
     },
     {
         id: 3,
@@ -30,9 +34,11 @@ export const officeList: Array<OfficeModel> = [
         freeParkSlots: 3,
         freeWorkPlaces: 59,
         humidity: 86,
-        officeAddress: 'Alba Iulia 75',
-        officeName: 'Office 3',
+        officeAddress: 'Calea Iesilor 8',
+        officeName: 'Zitty',
         temperature: 23,
-        driveMinutes: 29
+        driveMinutes: 29,
+        lat: 47.03957163,
+        lng: 28.80386442,
     }
 ]

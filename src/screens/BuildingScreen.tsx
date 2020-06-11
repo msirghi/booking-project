@@ -4,6 +4,7 @@ import {officeList} from "../mocks/officeList";
 import {THEME} from "../components/shared/Theme";
 import {BuildingStatistics} from "../components/shared/BuildingStatistics";
 import {BuildingAvailability} from "../components/shared/BuildingAvailability";
+import Map from "../components/booking/Map";
 
 interface IProps {
     officeId: number;
@@ -34,23 +35,34 @@ export const BuildingScreen = (props: IProps) => {
                 </View>
             </View>
 
+            <View style={styles.mapWrapper}>
+                <Map/>
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     wrapper: {
-        flex: 0,
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         marginTop: '20%',
         marginLeft: '7%',
     },
+    mapWrapper: {
+        overflow: 'hidden',
+        // borderRadius: 10,
+        marginTop: 20,
+        width: '100%',
+    },
     stats: {},
     content: {},
-    header: {},
+    header: {
+        marginTop: '10%'
+    },
     mainTitle: {
-        fontWeight: "700",
+        fontWeight: '700',
         fontSize: 30
     },
     subheader: {
@@ -59,7 +71,7 @@ const styles = StyleSheet.create({
     drive: {
         color: THEME.ORANGE_COLOR,
         marginLeft: 'auto',
-        marginRight: 20
+        marginRight: 30
     },
     address: {
         color: THEME.GREY_COLOR

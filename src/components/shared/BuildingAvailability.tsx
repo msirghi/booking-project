@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View} from "react-native";
-import {FontAwesome5, MaterialIcons, MaterialCommunityIcons} from '@expo/vector-icons';
+import {MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
 import {Divider} from "react-native-material-ui";
 
 interface IProps {
-    temperature: number;
-    humidity: number;
+    temperature: number | string;
+    humidity: number | string;
     availability: number;
 }
 
@@ -14,21 +14,31 @@ export const BuildingAvailability = (props: IProps) => {
     return (
         <View style={styles.wrapper}>
             <View style={{...styles.firstRow, ...styles.row}}>
-                <MaterialCommunityIcons name={'temperature-celsius'} size={32}/>
+                <View style={styles.iconWrapper}>
+                    <MaterialCommunityIcons name={'temperature-celsius'} size={32}/>
+                </View>
                 <Text style={styles.text}>{temperature}°C Temperature</Text>
             </View>
-            <View style={styles.divider}>
+
+            <View>
                 <Divider/>
             </View>
-            <View style={styles.row}>
-                <MaterialIcons name={'opacity'} size={32}/>
+
+            <View style={{...styles.row, ...styles.middleRows}}>
+                <View style={styles.iconWrapper}>
+                    <MaterialIcons name={'opacity'} size={32}/>
+                </View>
                 <Text style={styles.text}>{humidity}% Humidity</Text>
             </View>
-            <View style={styles.divider}>
+
+            <View>
                 <Divider/>
             </View>
+
             <View style={{...styles.lastRow, ...styles.row}}>
-                <MaterialIcons name={'people'} size={32}/>
+                <View style={styles.iconWrapper}>
+                    <MaterialIcons name={'people'} size={32}/>
+                </View>
                 <Text style={styles.text}>{availability}% Full</Text>
             </View>
         </View>
@@ -46,24 +56,24 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
     },
-    firstRow: {},
+    iconWrapper: {
+        alignItems: 'center',
+        // width: 50
+    },
+    firstRow: {
+        marginBottom: 5
+    },
     row: {
         flexDirection: 'row',
         padding: 5,
-        paddingBottom: 5,
-        paddingTop: 5,
         alignItems: 'center',
     },
+    middleRows: {
+        paddingTop: 10,
+        paddingBottom: 10
+    },
     lastRow: {
-        borderBottomLeftRadius: 15,
-        borderBottomRightRadius: 15,
-    },
-    icon: {
-
-    },
-    divider: {
-        // width: '',
-        // marginLeft: 0
+        marginTop: 5
     },
     text: {
         marginLeft: 10,

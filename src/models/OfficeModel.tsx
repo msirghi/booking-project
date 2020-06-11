@@ -8,4 +8,6 @@ export interface OfficeModel {
     temperature: string | number;
     backgroundImageUri?: string;
     driveMinutes: number;
+    lat?: number;
+    lng?: number;
 }
