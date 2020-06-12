@@ -9,7 +9,7 @@ interface IProps {
     availability: number;
 }
 
-export const BuildingAvailability = (props: IProps) => {
+export const BuildingQualityView = (props: IProps) => {
     const {humidity, temperature, availability} = props;
     return (
         <View style={styles.wrapper}>
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     },
     iconWrapper: {
         alignItems: 'center',
-        // width: 50
     },
     firstRow: {
         marginBottom: 5

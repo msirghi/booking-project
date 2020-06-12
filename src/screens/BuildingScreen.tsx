@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from "react-native";
 import {officeList} from "../mocks/officeList";
 import {THEME} from "../components/shared/Theme";
-import {BuildingStatistics} from "../components/shared/BuildingStatistics";
-import {BuildingAvailability} from "../components/shared/BuildingAvailability";
-import Map from "../components/booking/Map";
+import {BuildingOccupation} from "../components/booking/BuildingOccupation";
+import {BuildingQualityView} from "../components/booking/BuildingQualityView";
+import {Map} from "../components/booking/Map";
 
 interface IProps {
     officeId: number;
@@ -25,10 +25,10 @@ export const BuildingScreen = (props: IProps) => {
             </View>
 
             <View style={styles.content}>
-                <BuildingStatistics officeInfo={selectedOffice!}/>
+                <BuildingOccupation officeInfo={selectedOffice!}/>
 
                 <View style={styles.stats}>
-                    <BuildingAvailability
+                    <BuildingQualityView
                         temperature={selectedOffice!.temperature}
                         humidity={selectedOffice!.humidity}
                         availability={57}/>
@@ -36,7 +36,7 @@ export const BuildingScreen = (props: IProps) => {
             </View>
 
             <View style={styles.mapWrapper}>
-                <Map/>
+                <Map officeSelected={selectedOffice!}/>
             </View>
         </View>
     );

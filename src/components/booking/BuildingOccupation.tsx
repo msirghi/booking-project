@@ -8,7 +8,7 @@ interface IProps {
     officeInfo: OfficeModel;
 }
 
-export const BuildingStatistics = (props: IProps) => {
+export const BuildingOccupation = (props: IProps) => {
     const {officeInfo} = props;
     return (
         <View style={styles.mainWrapper}>
