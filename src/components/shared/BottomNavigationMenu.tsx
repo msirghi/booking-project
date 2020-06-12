@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import {BottomNavigation} from 'react-native-material-ui';
 import {ADMINISTRATION_TAB, BOOKING_TAB, CAR_POOLING_TAB} from "../../constants";
@@ -10,7 +11,7 @@ interface IProps {
 
 export const BottomNavigationMenu: React.FC<IProps> = ({activeScreen, activateScreen}) => {
     const getActiveStyles = (active: string) => {
-        return  {
+        return {
             icon: {color: activeScreen === active ? THEME.ORANGE_COLOR : THEME.GREY_COLOR},
             label: {color: activeScreen === active ? THEME.ORANGE_COLOR : THEME.GREY_COLOR},
         }

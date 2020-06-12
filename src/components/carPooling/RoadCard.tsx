@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import {Dimensions, StyleSheet, Text, View} from "react-native";
 import {Button, Card} from "react-native-material-ui";

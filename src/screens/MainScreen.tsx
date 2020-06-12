@@ -24,7 +24,7 @@ export const MainScreen = (props: IProps) => {
             </View>
 
             {officeList.map((office, index) =>
-                <View style={styles.cardWrapper} key={index}>
+                <View style={index !== 0 ? styles.cardWrapper : {}} key={index}>
                     <OfficeCard
                         onClick={() => onOfficeSelect(office.id)}
                         key={index}
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         flex: 0,
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: '10%',
+        marginTop: '17%',
         marginLeft: '7%',
         height: 120
     },
