@@ -6,7 +6,7 @@ import {THEME} from "./Theme";
 
 interface IProps {
     activateScreen: Function;
-    activeScreen: 'booking' | 'administration' | 'car-pooling';
+    activeScreen: string;
 }
 
 export const BottomNavigationMenu: React.FC<IProps> = ({activeScreen, activateScreen}) => {
