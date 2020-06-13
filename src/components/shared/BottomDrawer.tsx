@@ -32,7 +32,8 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
                 customStyles={{
                     container: {
                         height: '50%',
-                        borderRadius: 40
+                        borderTopLeftRadius: 40,
+                        borderTopRightRadius: 40,
                     },
                     draggableIcon: {
                         backgroundColor: "#000"
