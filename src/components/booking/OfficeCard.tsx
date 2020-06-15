@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     officeName: {
         fontSize: 25,
-        color: '#fff',
+        color: THEME.WHITE_COLOR,
         marginTop: 10,
         marginLeft: 10
     },

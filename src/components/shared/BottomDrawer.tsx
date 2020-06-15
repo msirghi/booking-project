@@ -23,6 +23,11 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
             refRBSheet.current.open();
         } else {
             refRBSheet.current.close();
+            setTimeout(() => {
+                setSelectedFrom(null);
+                setSelectedAddress(null);
+                setSelectedSeats(null);
+            }, 500);
         }
     }, [opened]);
 
@@ -110,12 +115,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     button: {
+        backgroundColor: THEME.LIGHT_GREY_COLOR,
         width: Dimensions.get('window').width / 2.5,
         borderRadius: 10,
         height: 40
     },
     buttonText: {
-        color: '#fff',
+        color: THEME.WHITE_COLOR,
     },
     submit: {
         backgroundColor: THEME.ORANGE_COLOR

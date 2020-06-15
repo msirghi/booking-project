@@ -3,6 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {MaterialIcons} from '@expo/vector-icons';
 import {Divider} from "react-native-material-ui";
 import {OfficeModel} from "../../models/OfficeModel";
+import {THEME} from "../shared/Theme";
 
 interface IProps {
     officeInfo: OfficeModel;
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     upperWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: THEME.WHITE_COLOR,
         padding: 10,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     lowerWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: THEME.WHITE_COLOR,
         padding: 10,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,

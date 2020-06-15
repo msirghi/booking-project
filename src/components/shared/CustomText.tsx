@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
+import {THEME} from "./Theme";
 
 interface IProps {
     color?: string;
@@ -9,7 +10,7 @@ interface IProps {
 }
 
 export const CustomText = (props: IProps) => {
-    const {color = '#fff', fontSize = 15, children, style} = props;
+    const {color = THEME.WHITE_COLOR, fontSize = 15, children, style} = props;
 
     const initialStyle = {color, fontSize}
 

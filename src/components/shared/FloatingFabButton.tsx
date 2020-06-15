@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
+import {THEME} from "./Theme";
 
 interface IProps {
     onClick: Function;
@@ -25,7 +26,7 @@ export const FloatingFabButton: React.FC<IProps> = ({onClick}) => {
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-        backgroundColor: '#fff',
+        backgroundColor: THEME.WHITE_COLOR,
         borderRadius: 230,
         padding: 10,
         elevation: 2

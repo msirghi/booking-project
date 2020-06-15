@@ -24,13 +24,20 @@ export const ChipRow: React.FC<IProps> = ({selected, setSelected, array, plusBut
                     return <View style={chipStyles.chip} key={index}>
                         <RNChipView
                             onPress={() => setSelected(value)}
-                            titleStyle={{...chipStyles.chipTitle, ...isSelected && {color: '#fff'}}}
+                            titleStyle={{
+                                ...chipStyles.chipTitle,
+                                ...isSelected && {
+                                    color: THEME.WHITE_COLOR,
+                                    marginLeft: -5
+                                }
+                            }}
                             height={30}
                             backgroundColor={isSelected ? THEME.LIGHT_ORANGE_COLOR : '#f0f1f3'}
                             key={index}
                             avatarStyle={{justifyContent: 'center', alignItems: 'center'}}
                             title={value.title}
-                            avatar={isSelected ? <MaterialIcons name={'check'} size={24} color={'white'}/> : false}
+                            avatar={isSelected ?
+                                <MaterialIcons name={'check'} size={24} color={THEME.WHITE_COLOR}/> : false}
                         />
                     </View>
                 }

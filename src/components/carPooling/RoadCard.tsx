@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     buttonText: {
-        color: '#fff'
+        color: THEME.WHITE_COLOR
     }
 });

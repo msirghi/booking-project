@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from "react-native";
 import {MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
 import {Divider} from "react-native-material-ui";
+import {THEME} from "../shared/Theme";
 
 interface IProps {
     temperature: number | string;
@@ -47,7 +48,7 @@ export const BuildingQualityView: React.FC<IProps> = ({availability, humidity, t
 const styles = StyleSheet.create({
     wrapper: {
         marginTop: 20,
-        backgroundColor: '#fff',
+        backgroundColor: THEME.WHITE_COLOR,
         padding: 10,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
