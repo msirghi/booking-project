@@ -6,15 +6,16 @@ import {THEME} from "./Theme";
 
 interface IProps {
     submitBtnTitle: string;
+    onCancel: Function;
 }
 
-export const TwoRowButtons: React.FC<IProps> = ({submitBtnTitle}) => {
+export const TwoRowButtons: React.FC<IProps> = ({submitBtnTitle,onCancel}) => {
 
     return (
         <View>
             <Row style={{...styles.row, ...styles.buttonRow}}>
                 <MatButton
-                    // onPress={() => toggleDrawer(false)}
+                    onPress={() => onCancel()}
                     style={{container: {...styles.button}}}
                     raised
                     text='Cancel'/>

@@ -21,6 +21,7 @@ export const ToggleCard: React.FC<IProps> = ({subheader, icon, header, enabled, 
                         <Row style={styles.row}>
                             {icon}
                             <Switch
+                                onValueChange={() => toggleVal()}
                                 style={styles.switch}
                                 trackColor={{false: THEME.GREY_COLOR, true: THEME.ORANGE_COLOR}}
                                 thumbColor={"#f5dd4b"}

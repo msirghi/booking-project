@@ -8,8 +8,7 @@ import {PageTitle} from "../components/shared/PageTitle";
 import {MAIN_CONTAINER_STYLES, OFFICE_SUBTITLE, OFFICE_TITLE} from "../constants";
 import {FadeInView} from "../components/animations/FadeInView";
 import {ScrollableWrapper} from "../components/shared/ScrollableWrapper";
-import TemperatureChanger from "../components/administration/TemperatureChanger";
-
+import {TempChanger} from "../components/administration/TemperatureChanger";
 
 export const AdministrationScreen = () => {
     const [isTempChangeOpen, setTempChangeOpen] = useState(false);
@@ -61,7 +60,7 @@ export const AdministrationScreen = () => {
                         />
                     </Row>
 
-                    <TemperatureChanger isTempChangeOpen={isTempChangeOpen}/>
+                    <TempChanger isTempChangeOpen={isTempChangeOpen} toggleDrawer={() => setTempChangeOpen(false)}/>
                 </View>
             </FadeInView>
         </ScrollableWrapper>
