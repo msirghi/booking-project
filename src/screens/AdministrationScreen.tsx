@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from "react-native";
 import {ToggleCard} from "../components/administration/ToggleCard";
 import {Row} from "../utils/Row";
@@ -8,8 +8,12 @@ import {PageTitle} from "../components/shared/PageTitle";
 import {MAIN_CONTAINER_STYLES, OFFICE_SUBTITLE, OFFICE_TITLE} from "../constants";
 import {FadeInView} from "../components/animations/FadeInView";
 import {ScrollableWrapper} from "../components/shared/ScrollableWrapper";
+import TemperatureChanger from "../components/administration/TemperatureChanger";
+
 
 export const AdministrationScreen = () => {
+    const [isTempChangeOpen, setTempChangeOpen] = useState(false);
+
     return (
         <ScrollableWrapper>
             <FadeInView>
@@ -19,6 +23,7 @@ export const AdministrationScreen = () => {
                         <ToggleCard
                             enabled={true}
                             toggleVal={() => {
+                                setTempChangeOpen(true);
                             }}
                             icon={<FontAwesome5 name={'temperature-high'} size={45} color={THEME.ORANGE_COLOR}/>}
                             header={'Air Conditioner'}
@@ -55,6 +60,8 @@ export const AdministrationScreen = () => {
                             subheader={'On'}
                         />
                     </Row>
+
+                    <TemperatureChanger isTempChangeOpen={isTempChangeOpen}/>
                 </View>
             </FadeInView>
         </ScrollableWrapper>
