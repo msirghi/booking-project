@@ -7,8 +7,7 @@ interface IProps {
     onOfficeSelect: Function;
 }
 
-export const MainScreen = (props: IProps) => {
-    const {onOfficeSelect} = props;
+export const MainScreen: React.FC<IProps> = ({onOfficeSelect}) => {
     return (
         <View>
             <View style={styles.wrapper}>

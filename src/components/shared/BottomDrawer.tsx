@@ -31,7 +31,7 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
                 closeOnDragDown={true}
                 customStyles={{
                     container: {
-                        height: '50%',
+                        height: 'auto',
                         borderTopLeftRadius: 40,
                         borderTopRightRadius: 40,
                     },
@@ -113,10 +113,11 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
                         <Row style={{...styles.row, ...styles.buttonRow}}>
                             <Button
                                 onPress={() => toggleDrawer(false)}
-                                style={{container: {...styles.button, ...styles.cancel}}} raised text="Cancel"/>
+                                style={{container: {...styles.button}}} raised text='Cancel'/>
                             <Button
                                 style={{container: {...styles.button, ...styles.submit}, text: styles.buttonText}}
-                                raised text="Open ride"/>
+                                raised
+                                text='Open ride'/>
                         </Row>
                     </View>
                 </View>
@@ -160,7 +161,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    drawer: {},
     content: {
         padding: 20
     },
@@ -179,5 +179,4 @@ const styles = StyleSheet.create({
     submit: {
         backgroundColor: THEME.ORANGE_COLOR
     },
-    cancel: {}
 })

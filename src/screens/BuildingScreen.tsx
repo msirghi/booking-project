@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {officeList} from "../mocks/officeList";
 import {THEME} from "../components/shared/Theme";
 import {BuildingOccupation} from "../components/booking/BuildingOccupation";
@@ -10,8 +10,7 @@ interface IProps {
     officeId: number;
 }
 
-export const BuildingScreen = (props: IProps) => {
-    const {officeId} = props;
+export const BuildingScreen: React.FC<IProps> = ({officeId}) => {
     const selectedOffice = officeList.find(office => office.id === officeId);
 
     return (
@@ -24,20 +23,22 @@ export const BuildingScreen = (props: IProps) => {
                 </View>
             </View>
 
-            <View style={styles.content}>
-                <BuildingOccupation officeInfo={selectedOffice!}/>
+            <ScrollView>
+                <View style={styles.content}>
+                    <BuildingOccupation officeInfo={selectedOffice!}/>
 
-                <View style={styles.stats}>
-                    <BuildingQualityView
-                        temperature={selectedOffice!.temperature}
-                        humidity={selectedOffice!.humidity}
-                        availability={57}/>
+                    <View style={styles.stats}>
+                        <BuildingQualityView
+                            temperature={selectedOffice!.temperature}
+                            humidity={selectedOffice!.humidity}
+                            availability={57}/>
+                    </View>
                 </View>
-            </View>
 
-            <View style={styles.mapWrapper}>
-                <Map officeSelected={selectedOffice!}/>
-            </View>
+                <View style={styles.mapWrapper}>
+                    <Map officeSelected={selectedOffice!}/>
+                </View>
+            </ScrollView>
         </View>
     );
 }
@@ -47,20 +48,18 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        marginTop: '20%',
+        marginTop: '10%',
         marginLeft: '7%',
     },
     mapWrapper: {
         overflow: 'hidden',
-        // borderRadius: 10,
+        borderRadius: 10,
         marginTop: 20,
         width: '100%',
     },
     stats: {},
     content: {},
-    header: {
-        marginTop: '10%'
-    },
+    header: {},
     mainTitle: {
         fontWeight: '700',
         fontSize: 30
