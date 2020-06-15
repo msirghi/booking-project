@@ -41,7 +41,7 @@ export const Map: React.FC<IProps> = ({officeSelected}) => {
             region={region}>
             <MapView.Marker
                 coordinate={markerCoords}
-                title={officeSelected.officeName}
+                title={officeSelected.title}
                 description={officeSelected.officeAddress}
             />
         </Animated>

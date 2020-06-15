@@ -28,14 +28,9 @@ export const MainApp = () => {
                 {!selectedOffice && currentNavigation === 'booking'
                 && <MainScreen onOfficeSelect={toggleSelectedOffice}/>}
 
-                {selectedOffice && currentNavigation === 'booking'
-                && <BuildingScreen officeId={selectedOffice}/>}
-
-                {currentNavigation === 'administration'
-                && <AdministrationScreen/>}
-
-                {currentNavigation === 'car-pooling'
-                && <CarPoolingScreen/>}
+                {selectedOffice && currentNavigation === 'booking' && <BuildingScreen officeId={selectedOffice}/>}
+                {currentNavigation === 'administration' && <AdministrationScreen/>}
+                {currentNavigation === 'car-pooling' && <CarPoolingScreen/>}
             </View>
 
             <View style={styles.bottomNavigation}>

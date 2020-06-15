@@ -1,17 +1,22 @@
 // @ts-nocheck
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Dimensions, StyleSheet, Text, View} from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
-import {RNChipView} from 'react-native-chip-view'
 import {Row} from "../../utils/Row";
-import {officeList} from "../../mocks/officeList";
 import {addressList} from "../../mocks/addressList";
 import {seatList} from "../../mocks/seatList";
 import {Button} from 'react-native-material-ui';
 import {THEME} from "./Theme";
+import {OfficeModel} from "../../models/OfficeModel";
+import {ChipRow} from "../carPooling/ChipRow";
+import {officeList} from "../../mocks/officeList";
+import {AddressModel} from "../../models/AddressModel";
 
 export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }> = ({opened, toggleDrawer}) => {
     const refRBSheet = useRef();
+    const [selectedFrom, setSelectedFrom] = useState<OfficeModel | null>(null);
+    const [selectedAddress, setSelectedAddress] = useState<AddressModel | null>(null);
+    const [selectedSeats, setSelectedSeats] = useState<SeatModel | null>(null);
 
     useEffect(() => {
         if (opened) {
@@ -29,91 +34,37 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
                 ref={refRBSheet}
                 openDuration={250}
                 closeOnDragDown={true}
-                customStyles={{
-                    container: {
-                        height: 'auto',
-                        borderTopLeftRadius: 40,
-                        borderTopRightRadius: 40,
-                    },
-                    draggableIcon: {
-                        backgroundColor: "#000"
-                    }
-                }}
+                customStyles={{container: styles.sheetContainer}}
             >
                 <View style={styles.content}>
                     <View style={styles.header}>
                         <Text style={styles.title}>Start a ride</Text>
                     </View>
 
-                    <View style={styles.startsFrom}>
+                    <View>
                         <Text style={styles.text}>Starts from?</Text>
-
-                        <Row style={styles.row}>
-                            {officeList.map((value, index) =>
-                                <View style={styles.chip}>
-                                    <RNChipView
-                                        titleStyle={styles.chipTitle}
-                                        height={30}
-                                        backgroundColor={'#f0f1f3'}
-                                        key={index}
-                                        title={value.officeName}
-                                        avatar={false}
-                                    />
-                                </View>
-                            )}
-                        </Row>
+                        <ChipRow selected={selectedFrom} setSelected={setSelectedFrom} array={officeList}/>
                     </View>
 
-                    <View style={styles.address}>
+                    <View style={styles.mt10}>
                         <Text style={styles.text}>Where are you going?</Text>
+                        <ChipRow
+                            selected={selectedAddress}
+                            setSelected={setSelectedAddress}
+                            array={addressList}
+                            plusButton/>
                     </View>
 
-                    <Row style={styles.row}>
-                        {addressList.map((value, index) =>
-                            <View style={styles.chip}>
-                                <RNChipView
-                                    titleStyle={styles.chipTitle}
-                                    height={30}
-                                    backgroundColor={'#f0f1f3'}
-                                    key={index}
-                                    title={value}
-                                    avatar={false}
-                                />
-                            </View>
-                        )}
-
-                        <View style={styles.chip}>
-                            <RNChipView
-                                height={30}
-                                backgroundColor={'#f0f1f3'}
-                                title={'+'}
-                                avatar={false}
-                            />
-                        </View>
-                    </Row>
-
-                    <View style={styles.seats}>
+                    <View style={styles.mt10}>
                         <Text style={styles.text}>How many seats?</Text>
-
-                        <Row style={styles.row}>
-                            {seatList.map((value, index) =>
-                                <View style={styles.chip}>
-                                    <RNChipView
-                                        titleStyle={styles.chipTitle}
-                                        height={30}
-                                        backgroundColor={'#f0f1f3'}
-                                        key={index}
-                                        title={value}
-                                        avatar={false}
-                                    />
-                                </View>
-                            )}
-                        </Row>
+                        <ChipRow selected={selectedSeats} setSelected={setSelectedSeats} array={seatList}/>
 
                         <Row style={{...styles.row, ...styles.buttonRow}}>
                             <Button
                                 onPress={() => toggleDrawer(false)}
-                                style={{container: {...styles.button}}} raised text='Cancel'/>
+                                style={{container: {...styles.button}}}
+                                raised
+                                text='Cancel'/>
                             <Button
                                 style={{container: {...styles.button, ...styles.submit}, text: styles.buttonText}}
                                 raised
@@ -127,25 +78,15 @@ export const BottomDrawer: React.FC<{ opened: boolean, toggleDrawer: Function }>
 }
 
 const styles = StyleSheet.create({
-    startsFrom: {},
-    seats: {
+    mt10: {
         marginTop: 10
     },
     row: {
         justifyContent: 'flex-start',
-        marginTop: 20
-    },
-    chip: {
-        marginLeft: 10
-    },
-    address: {
-        marginTop: 10
-    },
-    chipTitle: {
-        fontSize: 15
+        marginTop: 15
     },
     text: {
-        fontWeight: '700'
+        fontWeight: '700',
     },
     header: {
         flexDirection: 'row',
@@ -178,5 +119,10 @@ const styles = StyleSheet.create({
     },
     submit: {
         backgroundColor: THEME.ORANGE_COLOR
+    },
+    sheetContainer: {
+        height: 'auto',
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
     },
 })

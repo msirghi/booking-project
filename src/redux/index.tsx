@@ -1,8 +1,10 @@
-import { combineReducers, createStore } from 'redux';
-import { navigationReducer } from './reducers/navigationReducer';
+import {combineReducers, createStore} from 'redux';
+import {navigationReducer} from './reducers/navigationReducer';
+import {accountReducer} from "./reducers/accountReducer";
 
 const rootReducer = combineReducers({
-  navigation: navigationReducer
+    navigation: navigationReducer,
+    account: accountReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

@@ -19,7 +19,7 @@ export const BuildingScreen: React.FC<IProps> = ({officeId}) => {
         <ScrollableWrapper>
             <FadeInView>
                 <View>
-                    <Text style={styles.mainTitle}>{selectedOffice!.officeName}</Text>
+                    <Text style={styles.mainTitle}>{selectedOffice!.title}</Text>
                     <View style={styles.subheader}>
                         <Text style={styles.address}>{selectedOffice!.officeAddress}</Text>
                         <Text style={styles.drive}>~{selectedOffice!.driveMinutes} minutes drive</Text>

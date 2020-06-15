@@ -5,19 +5,22 @@ import {officeList} from "../mocks/officeList";
 import {FadeInView} from "../components/animations/FadeInView";
 import {MAIN_CONTAINER_STYLES} from "../constants";
 import {ScrollableWrapper} from "../components/shared/ScrollableWrapper";
+import {useSelector} from "react-redux";
+import {RootState} from "../redux";
 
 interface IProps {
     onOfficeSelect: Function;
 }
 
 export const MainScreen: React.FC<IProps> = ({onOfficeSelect}) => {
+    const accountName = useSelector((state: RootState) => state.account.name);
     return (
         <ScrollableWrapper>
             <FadeInView>
                 <View>
                     <View style={styles.wrapper}>
                         <View>
-                            <Text style={styles.welcomeText}>Welcome, John!</Text>
+                            <Text style={styles.welcomeText}>Welcome, {accountName}!</Text>
                             <Text style={styles.secondaryText}>Select where you want to work today</Text>
                         </View>
                         <View>
@@ -37,7 +40,7 @@ export const MainScreen: React.FC<IProps> = ({onOfficeSelect}) => {
                                 freeWorkPlaces={office.freeWorkPlaces}
                                 humidity={office.humidity}
                                 officeAddress={office.officeAddress}
-                                officeName={office.officeName}
+                                officeName={office.title}
                                 temperature={office.temperature}
                                 driveMinutes={office.driveMinutes}
                             />

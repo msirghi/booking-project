@@ -1,6 +1,6 @@
 export interface OfficeModel {
     id: number;
-    officeName: string;
+    title: string;
     officeAddress: string;
     freeWorkPlaces: number;
     freeParkSlots: number;
