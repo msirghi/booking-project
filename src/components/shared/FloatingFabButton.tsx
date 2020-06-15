@@ -40,9 +40,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: 50,
         height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        right: 30,
-        bottom: 30,
+        right: 20,
+        bottom: 15,
     },
 });

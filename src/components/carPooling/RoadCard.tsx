@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     wrapper: {},
     card: {
         padding: 10,
-        width: Dimensions.get('window').width / 1.2,
+        width: Dimensions.get('window').width / 1.1,
         height: 'auto',
         borderRadius: 10
     },

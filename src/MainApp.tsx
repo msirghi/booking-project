@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {BottomNavigationMenu} from "./components/shared/BottomNavigationMenu";
 import {StyleSheet, View} from "react-native";
-import {FadeInView} from "./components/animations/FadeInView";
 import {MainScreen} from "./screens/MainScreen";
 import {BuildingScreen} from "./screens/BuildingScreen";
 import {AdministrationScreen} from "./screens/AdministrationScreen";
-import {THEME} from "./components/shared/Theme";
 import {CarPoolingScreen} from "./screens/CarPoolingScreen";
 import {useDispatch, useSelector} from "react-redux";
 import {navigateToNewScreen} from "./redux/actions/navigationActions";
 import {RootState} from "./redux";
+import {MAIN_CONTAINER_STYLES} from "./constants";
 
 export const MainApp = () => {
     const [selectedOffice, setSelectedOffice] = useState<number | null>(null);
@@ -24,28 +23,21 @@ export const MainApp = () => {
     const toggleSelectedOffice = (id: number) => setSelectedOffice(id);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.container}>
-                {!selectedOffice && currentNavigation === 'booking' &&
-                <FadeInView style={styles.container}>
-                  <MainScreen onOfficeSelect={toggleSelectedOffice}/>
-                </FadeInView>}
+        <View style={styles.test}>
+            <View style={{...styles.container}}>
+                {!selectedOffice && currentNavigation === 'booking'
+                && <MainScreen onOfficeSelect={toggleSelectedOffice}/>}
 
-                {selectedOffice && currentNavigation === 'booking' &&
-                <FadeInView style={styles.container}>
-                  <BuildingScreen officeId={selectedOffice}/>
-                </FadeInView>}
+                {selectedOffice && currentNavigation === 'booking'
+                && <BuildingScreen officeId={selectedOffice}/>}
 
-                {currentNavigation === 'administration' &&
-                <FadeInView style={styles.container}>
-                  <AdministrationScreen/>
-                </FadeInView>}
+                {currentNavigation === 'administration'
+                && <AdministrationScreen/>}
 
-                {currentNavigation === 'car-pooling' &&
-                <FadeInView style={styles.container}>
-                  <CarPoolingScreen/>
-                </FadeInView>}
+                {currentNavigation === 'car-pooling'
+                && <CarPoolingScreen/>}
             </View>
+
             <View style={styles.bottomNavigation}>
                 <BottomNavigationMenu
                     activeScreen={currentNavigation}
@@ -56,11 +48,11 @@ export const MainApp = () => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: THEME.LIGHT_GREY_COLOR,
-    },
+    container: MAIN_CONTAINER_STYLES,
     bottomNavigation: {
-        width: '100%'
+        width: '100%',
+    },
+    test: {
+        flex: 1
     }
 });

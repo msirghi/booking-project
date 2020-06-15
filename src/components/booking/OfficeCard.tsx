@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     wrapper: {
-        width: '90%',
+        width: '100%',
         height: 150,
         flex: 0,
     },

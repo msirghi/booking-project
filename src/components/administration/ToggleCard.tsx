@@ -40,7 +40,7 @@ export const ToggleCard: React.FC<IProps> = ({subheader, icon, header, enabled, 
 
 const styles = StyleSheet.create({
     wrapper: {
-        width: Dimensions.get('window').width / 2.5,
+        width: Dimensions.get('window').width / 2.3,
         height: 150,
         borderRadius: 10
     },

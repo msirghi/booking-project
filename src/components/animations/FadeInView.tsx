@@ -1,15 +1,15 @@
-import React, {useRef} from 'react';
-import {Animated, Text, View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {Animated} from 'react-native';
 
 interface IProps {
     children?: object;
     style?: object;
 }
 
-export  const FadeInView = (props: IProps) => {
-    const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
+export const FadeInView: React.FC<IProps> = ({children, style}) => {
+    const fadeAnim = useRef(new Animated.Value(0)).current;
 
-    React.useEffect(() => {
+    useEffect(() => {
         Animated.timing(
             fadeAnim,
             {
@@ -20,13 +20,13 @@ export  const FadeInView = (props: IProps) => {
     }, [])
 
     return (
-        <Animated.View                 // Special animatable View
+        <Animated.View
             style={{
-                ...props.style,
-                opacity: fadeAnim,         // Bind opacity to animated value
+                ...style,
+                opacity: fadeAnim,
             }}
         >
-            {props.children}
+            {children}
         </Animated.View>
     );
 }

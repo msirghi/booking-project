@@ -9,8 +9,7 @@ interface IProps {
     availability: number;
 }
 
-export const BuildingQualityView = (props: IProps) => {
-    const {humidity, temperature, availability} = props;
+export const BuildingQualityView: React.FC<IProps> = ({availability, humidity, temperature}) => {
     return (
         <View style={styles.wrapper}>
             <View style={{...styles.firstRow, ...styles.row}}>
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
-        width: '93%',
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
     },

@@ -50,7 +50,6 @@ export const Map: React.FC<IProps> = ({officeSelected}) => {
 
 const styles = StyleSheet.create({
     mapStyle: {
-        width: '93%',
         height: 300,
     },
 });

@@ -8,8 +8,7 @@ interface IProps {
     officeInfo: OfficeModel;
 }
 
-export const BuildingOccupation = (props: IProps) => {
-    const {officeInfo} = props;
+export const BuildingOccupation: React.FC<IProps> = ({officeInfo}) => {
     return (
         <View style={styles.mainWrapper}>
             <TouchableOpacity activeOpacity={0.5}>
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
-        width: '93%'
     },
     chevron: {
         marginLeft: 'auto'
@@ -67,10 +65,9 @@ const styles = StyleSheet.create({
         padding: 10,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
-        width: '93%'
     },
     mainWrapper: {
-        marginTop: '10%',
+        marginTop: '5%',
     },
     divider: {
         width: '85%',

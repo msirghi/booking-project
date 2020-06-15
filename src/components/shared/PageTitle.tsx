@@ -13,8 +13,6 @@ export const PageTitle: React.FC<{ title: string, subtitle: string }> = ({title,
 
 const styles = StyleSheet.create({
     wrapper: {
-        marginTop: '10%',
-        marginLeft: '8%',
         paddingBottom: 15
     },
     title: {

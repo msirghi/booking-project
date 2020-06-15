@@ -1,10 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import {officeList} from "../mocks/officeList";
 import {THEME} from "../components/shared/Theme";
 import {BuildingOccupation} from "../components/booking/BuildingOccupation";
 import {BuildingQualityView} from "../components/booking/BuildingQualityView";
 import {Map} from "../components/booking/Map";
+import {FadeInView} from "../components/animations/FadeInView";
+import {ScrollableWrapper} from "../components/shared/ScrollableWrapper";
 
 interface IProps {
     officeId: number;
@@ -14,20 +16,20 @@ export const BuildingScreen: React.FC<IProps> = ({officeId}) => {
     const selectedOffice = officeList.find(office => office.id === officeId);
 
     return (
-        <View style={styles.wrapper}>
-            <View style={styles.header}>
-                <Text style={styles.mainTitle}>{selectedOffice!.officeName}</Text>
-                <View style={styles.subheader}>
-                    <Text style={styles.address}>{selectedOffice!.officeAddress}</Text>
-                    <Text style={styles.drive}>~{selectedOffice!.driveMinutes} minutes drive</Text>
+        <ScrollableWrapper>
+            <FadeInView>
+                <View>
+                    <Text style={styles.mainTitle}>{selectedOffice!.officeName}</Text>
+                    <View style={styles.subheader}>
+                        <Text style={styles.address}>{selectedOffice!.officeAddress}</Text>
+                        <Text style={styles.drive}>~{selectedOffice!.driveMinutes} minutes drive</Text>
+                    </View>
                 </View>
-            </View>
 
-            <ScrollView>
-                <View style={styles.content}>
+                <View>
                     <BuildingOccupation officeInfo={selectedOffice!}/>
 
-                    <View style={styles.stats}>
+                    <View>
                         <BuildingQualityView
                             temperature={selectedOffice!.temperature}
                             humidity={selectedOffice!.humidity}
@@ -38,28 +40,17 @@ export const BuildingScreen: React.FC<IProps> = ({officeId}) => {
                 <View style={styles.mapWrapper}>
                     <Map officeSelected={selectedOffice!}/>
                 </View>
-            </ScrollView>
-        </View>
+            </FadeInView>
+        </ScrollableWrapper>
     );
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        marginTop: '10%',
-        marginLeft: '7%',
-    },
     mapWrapper: {
         overflow: 'hidden',
         borderRadius: 10,
         marginTop: 20,
-        width: '100%',
     },
-    stats: {},
-    content: {},
-    header: {},
     mainTitle: {
         fontWeight: '700',
         fontSize: 30
@@ -70,7 +61,6 @@ const styles = StyleSheet.create({
     drive: {
         color: THEME.ORANGE_COLOR,
         marginLeft: 'auto',
-        marginRight: 30
     },
     address: {
         color: THEME.GREY_COLOR

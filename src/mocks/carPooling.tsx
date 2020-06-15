@@ -41,6 +41,7 @@ export const carPoolingList: Array<CarPoolingBookModel> = [
                 status: 'free'
             }
         ]
-    }
+    },
+
 
 ];
